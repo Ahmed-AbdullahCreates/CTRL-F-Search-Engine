@@ -242,4 +242,4 @@ We welcome contributions to improve the Curious Seeker Engine!
 
 The CTRL+F Search Engine is deployed and accessible at the following link:
 
-[CTRL+F Search Engine Deployment]([https://.example.com](https://ctrlof-search-engine.vercel.app/))
+[CTRL+F Search Engine Deployment](https://ctrlof-search-engine.vercel.app/)
