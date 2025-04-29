@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 50% 8%;
+    --foreground: 180 100% 90%;
+
+    --card: 210 50% 10%;
+    --card-foreground: 180 100% 90%;
+
+    --popover: 210 50% 10%;
+    --popover-foreground: 180 100% 90%;
+
+    --primary: 186 100% 60%;
+    --primary-foreground: 210 50% 10%;
+
+    --secondary: 210 40% 15%;
+    --secondary-foreground: 180 100% 90%;
+
+    --muted: 210 40% 20%;
+    --muted-foreground: 210 20% 70%;
+
+    --accent: 186 100% 60%;
+    --accent-foreground: 210 50% 10%;
+
+    --destructive: 0 100% 65%;
+    --destructive-foreground: 210 20% 95%;
+
+    --border: 210 40% 20%;
+    --input: 210 40% 20%;
+    --ring: 186 100% 60%;
+
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-deepBlue text-foreground relative;
+    background-size: 20px 20px;
+    background-image: radial-gradient(circle, rgba(51, 195, 240, 0.05) 1px, transparent 1px);
+  }
+}
+
+@layer components {
+  .search-bar-glow {
+    box-shadow: 0 0 10px rgba(51, 195, 240, 0.7);
+  }
+  
+  .search-results-container {
+    @apply divide-y divide-neonBlue/10;
+  }
+  
+  /* Logo animation classes */
+  .animate-glow {
+    animation: logo-glow 3s infinite ease-in-out;
+  }
+  
+  .animate-blink {
+    animation: logo-blink 1.5s infinite ease-in-out;
+  }
+  
+  .animate-scanner {
+    animation: logo-scanner 2s infinite linear;
+  }
+  
+  @keyframes logo-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+  }
+  
+  @keyframes logo-glow {
+    0% { opacity: 0.5; filter: blur(8px); }
+    50% { opacity: 0.8; filter: blur(12px); }
+    100% { opacity: 0.5; filter: blur(8px); }
+  }
+  
+  @keyframes logo-scanner {
+    0% { left: -5px; opacity: 0.7; }
+    50% { left: 100%; opacity: 0.9; }
+    50.01% { left: -5px; opacity: 0; }
+    100% { left: -5px; opacity: 0; }
+  }
+}
+
+/* Digital grid pattern for background */
+.bg-digital-grid {
+  background-size: 20px 20px;
+  background-image: 
+    linear-gradient(to right, rgba(51, 195, 240, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(51, 195, 240, 0.05) 1px, transparent 1px);
+}
+
+/* Circuit pattern element */
+.circuit-node {
+  position: relative;
+}
+
+.circuit-node::before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: rgba(51, 195, 240, 0.8);
+  box-shadow: 0 0 6px rgba(51, 195, 240, 0.8);
+}
+
+.circuit-line {
+  position: relative;
+}
+
+.circuit-line::after {
+  content: '';
+  position: absolute;
+  background-color: rgba(51, 195, 240, 0.3);
+}
