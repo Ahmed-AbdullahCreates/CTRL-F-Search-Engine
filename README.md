@@ -71,30 +71,40 @@ The search engine implementation consists of multiple modules:
 ## Team Members
 
 <div align="center">
-    <table>
-        <tr>
-            <td align="center">
-                <img src="https://github.com/Ahmed-AbdullahCreates.png" width="100" height="100" style="border-radius:50%;" alt="Team Member" /><br />
-                <sub><b>Team Member</b></sub>
-            </td> 
-            <td align="center">
-                <img src="https://github.com/Elghrabawy.png" width="100" height="100" style="border-radius:50%;" alt="Team Member" /><br />
-                <sub><b>Team Member</b></sub>
-            </td>
-            <td align="center">
-                <img src="https://github.com/Ahmed010Ashraf.png" width="100" height="100" style="border-radius:50%;" alt="Team Member" /><br />
-                <sub><b>Team Member</b></sub>
-            </td>
-            <td align="center">
-                <img src="https://github.com/AhmedAyman4.png" width="100" height="100" style="border-radius:50%;" alt="Team Member" /><br />
-                <sub><b>Team Member</b></sub>
-            </td>
-            <td align="center">
-                <img src="https://github.com/MohamedOmaraa.png" width="100" height="100" style="border-radius:50%;" alt="Team Member" /><br />
-                <sub><b>Team Member</b></sub>
-            </td>
-        </tr>
-    </table>
+  <table>
+    <tr>
+      <td align="center">
+        <a href="https://github.com/Ahmed-AbdullahCreates">
+          <img src="https://github.com/Ahmed-AbdullahCreates.png" width="100" height="100" style="border-radius:50%;" alt="Ahmed Abdullah" /><br />
+          <sub><b>Ahmed Abdullah</b></sub>
+        </a>
+      </td> 
+      <td align="center">
+        <a href="https://github.com/Elghrabawy">
+          <img src="https://github.com/Elghrabawy.png" width="100" height="100" style="border-radius:50%;" alt="Ibrahim Alghrbawy" /><br />
+          <sub><b>Ibrahim Alghrbawy</b></sub>
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/Ahmed010Ashraf">
+          <img src="https://github.com/Ahmed010Ashraf.png" width="100" height="100" style="border-radius:50%;" alt="Ahmed Ashraf" /><br />
+          <sub><b>Ahmed Ashraf</b></sub>
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/AhmedAyman4">
+          <img src="https://github.com/AhmedAyman4.png" width="100" height="100" style="border-radius:50%;" alt="Ahmed Ayman" /><br />
+          <sub><b>Ahmed Ayman</b></sub>
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/MohamedOmaraa">
+          <img src="https://github.com/MohamedOmaraa.png" width="100" height="100" style="border-radius:50%;" alt="Mohamed Omara" /><br />
+          <sub><b>Mohamed Omara</b></sub>
+        </a>
+      </td>
+    </tr>
+  </table>
 </div>
 
 ## Features
@@ -232,4 +242,4 @@ We welcome contributions to improve the Curious Seeker Engine!
 
 The CTRL+F Search Engine is deployed and accessible at the following link:
 
-[CTRL+F Search Engine Deployment](https://.example.com)
+[CTRL+F Search Engine Deployment]([https://.example.com](https://ctrlof-search-engine.vercel.app/))
