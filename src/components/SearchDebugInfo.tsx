@@ -7,32 +7,37 @@ import { ChevronDown, Code, Timer, Lightbulb, SpellCheck } from 'lucide-react';
 interface SearchDebugInfoProps {
   query: string;
   processedQuery: string[];
-  spellingCorrections?: { [term: string]: string };
-  topTerms?: Array<{term: string, frequency: number}>;
+  spellingCorrections?: { [term: string]: string } | null;
+  topTerms?: Array<{term: string, frequency: number}> | null;
   processTime: number;
   className?: string;
 }
 
 export const SearchDebugInfo: React.FC<SearchDebugInfoProps> = ({
   query,
-  processedQuery,
+  processedQuery = [],
   spellingCorrections = {},
   topTerms = [],
-  processTime,
+  processTime = 0,
   className
 }) => {
   const { showDebugInfo, searchModel } = useSearchSettings();
   
   if (!showDebugInfo) return null;
   
-  const hasSpellingCorrections = Object.keys(spellingCorrections).length > 0;
+  // Safely handle possibly undefined values
+  const safeProcessedQuery = Array.isArray(processedQuery) ? processedQuery : [];
+  const safeSpellingCorrections = spellingCorrections || {};
+  const safeTopTerms = Array.isArray(topTerms) ? topTerms : [];
+  
+  const hasSpellingCorrections = Object.keys(safeSpellingCorrections).length > 0;
   
   return (
     <div className={cn(
       "rounded-lg border border-neonBlue/30 bg-darkBlue/40 p-3 text-sm",
       className
     )}>
-      <Collapsible>
+      <Collapsible defaultOpen>
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-2 text-neonBlue">
             <Code size={16} />
@@ -67,7 +72,7 @@ export const SearchDebugInfo: React.FC<SearchDebugInfoProps> = ({
                   <span>Corrections:</span>
                 </div>
                 <div>
-                  {Object.entries(spellingCorrections).map(([original, corrected], idx) => (
+                  {Object.entries(safeSpellingCorrections).map(([original, corrected], idx) => (
                     <div key={idx} className="flex items-center gap-2 mb-1">
                       <span className="bg-red-900/20 px-1.5 py-0.5 rounded text-xs line-through">
                         {original}
@@ -85,8 +90,8 @@ export const SearchDebugInfo: React.FC<SearchDebugInfoProps> = ({
             <div className="grid grid-cols-[100px_1fr] gap-2">
               <div className="text-muted-foreground">Processed:</div>
               <div className="font-mono flex flex-wrap gap-1">
-                {processedQuery.length > 0 ? 
-                  processedQuery.map((term, index) => (
+                {safeProcessedQuery.length > 0 ? 
+                  safeProcessedQuery.map((term, index) => (
                     <span key={index} className="bg-neonBlue/10 px-1.5 py-0.5 rounded text-xs">
                       {term}
                     </span>
@@ -98,14 +103,14 @@ export const SearchDebugInfo: React.FC<SearchDebugInfoProps> = ({
             </div>
             
             {/* Related terms section */}
-            {topTerms.length > 0 && (
+            {safeTopTerms.length > 0 && (
               <div className="grid grid-cols-[100px_1fr] gap-2">
                 <div className="text-muted-foreground flex items-center gap-1">
                   <Lightbulb size={14} className="text-neonBlue/70" />
                   <span>Related:</span>
                 </div>
                 <div className="font-mono flex flex-wrap gap-1">
-                  {topTerms.map((item, idx) => (
+                  {safeTopTerms.map((item, idx) => (
                     <div key={idx} className="bg-neonBlue/5 px-1.5 py-0.5 rounded text-xs flex items-center">
                       <span>{item.term}</span>
                       <span className="ml-1 opacity-60 text-xxs">({item.frequency})</span>

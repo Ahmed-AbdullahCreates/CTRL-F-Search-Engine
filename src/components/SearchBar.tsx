@@ -36,6 +36,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [filteredSuggestions, setFilteredSuggestions] = useState<string[]>([]);
   const [isListening, setIsListening] = useState(false);
+  const [isMouseOverSuggestions, setIsMouseOverSuggestions] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
 
@@ -144,7 +145,12 @@ export const SearchBar: React.FC<SearchBarProps> = ({
             onFocus={() => setShowSuggestions(true)}
             onBlur={() => {
               // Delay hiding suggestions to allow clicking on them
-              setTimeout(() => setShowSuggestions(false), 200);
+              // Increased delay time and check if mouse is over suggestions
+              setTimeout(() => {
+                if (!isMouseOverSuggestions) {
+                  setShowSuggestions(false);
+                }
+              }, 300);
             }}
             placeholder="Search for information..."
             aria-label="Search input"
@@ -191,12 +197,20 @@ export const SearchBar: React.FC<SearchBarProps> = ({
       </form>
 
       {showSuggestions && filteredSuggestions.length > 0 && (
-        <div className="absolute mt-1 w-full bg-darkBlue/95 backdrop-blur-sm border border-neonBlue/30 rounded-md shadow-glow-sm z-50 overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
+        <div 
+          className="absolute mt-1 w-full bg-darkBlue/95 backdrop-blur-sm border border-neonBlue/30 rounded-md shadow-glow-sm z-50 overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200"
+          onMouseEnter={() => setIsMouseOverSuggestions(true)}
+          onMouseLeave={() => setIsMouseOverSuggestions(false)}
+        >
           <ul>
             {filteredSuggestions.map((suggestion, index) => (
               <li 
                 key={index}
                 className="group flex justify-between items-center px-4 py-2.5 hover:bg-neonBlue/10 cursor-pointer transition-colors"
+                onMouseDown={(e) => {
+                  // Prevent blur event from firing before click
+                  e.preventDefault();
+                }}
                 onClick={() => handleSuggestionClick(suggestion)}
               >
                 <div className="flex items-center gap-2">
