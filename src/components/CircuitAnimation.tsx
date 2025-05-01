@@ -158,10 +158,10 @@ export const CircuitAnimation: React.FC = () => {
         }
 
         drawCircuit(ctx, circuit);
-        circuit.progress += circuit.speed;
+        circuit.progress += circuit.speed * 0.5;
 
         if (circuit.pulse) {
-          circuit.pulseProgress += circuit.pulseSpeed;
+          circuit.pulseProgress += circuit.pulseSpeed * 0.5;
           if (circuit.pulseProgress > 1) {
             circuit.pulseProgress = 0;
           }
@@ -169,9 +169,9 @@ export const CircuitAnimation: React.FC = () => {
 
         if (circuit.progress >= 1) {
           if (
-            Math.random() > 0.7 &&
+            Math.random() > 0.92 &&
             circuit.branchPoints.length > 0 &&
-            circuits.length < 100
+            circuits.length < 60
           ) {
             const branchPoint =
               circuit.branchPoints[
@@ -251,12 +251,12 @@ function createNewCircuit(canvas: HTMLCanvasElement): Circuit {
 
   const branchPoints: Point[] = [];
   for (let i = 1; i < points.length - 1; i++) {
-    if (Math.random() > 0.6) {
+    if (Math.random() > 0.9) {
       branchPoints.push(points[i]);
     }
   }
 
-  const hasPulse = Math.random() > 0.7;
+  const hasPulse = Math.random() > 0.85;
 
   const hue = 195 + (Math.random() * 20 - 10);
   const saturation = 70 + Math.random() * 30;
@@ -268,9 +268,9 @@ function createNewCircuit(canvas: HTMLCanvasElement): Circuit {
     end,
     points,
     progress: 0,
-    speed: Math.random() * 0.005 + 0.002,
+    speed: Math.random() * 0.0015 + 0.0006,
     color: `hsla(${hue}, ${saturation}%, ${lightness}%, ${
-      Math.random() * 0.4 + 0.6
+      Math.random() * 0.3 + 0.5
     })`,
     width: Math.random() * 1.5 + 0.5,
     pulse: hasPulse,
@@ -331,7 +331,7 @@ function createBranchCircuit(
     end: endPoint,
     points,
     progress: 0,
-    speed: Math.random() * 0.007 + 0.003,
+    speed: Math.random() * 0.002 + 0.0008,
     color: `hsla(${hue}, ${saturation}%, ${lightness}%, ${
       Math.random() * 0.5 + 0.5
     })`,

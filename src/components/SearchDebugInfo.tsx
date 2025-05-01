@@ -2,14 +2,14 @@ import React from 'react';
 import { useSearchSettings } from '@/context/SearchSettingsContext';
 import { cn } from '@/lib/utils';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
-import { ChevronDown, Code, Timer, Lightbulb, SpellCheck } from 'lucide-react';
+import { ChevronDown, Code, Lightbulb, SpellCheck } from 'lucide-react';
 
 interface SearchDebugInfoProps {
   query: string;
   processedQuery: string[];
   spellingCorrections?: { [term: string]: string } | null;
   topTerms?: Array<{term: string, frequency: number}> | null;
-  processTime: number;
+  processTime: number; // Still kept in interface for backward compatibility
   className?: string;
 }
 
@@ -18,7 +18,7 @@ export const SearchDebugInfo: React.FC<SearchDebugInfoProps> = ({
   processedQuery = [],
   spellingCorrections = {},
   topTerms = [],
-  processTime = 0,
+  processTime = 0, // Still accepting but not displaying this
   className
 }) => {
   const { showDebugInfo, searchModel } = useSearchSettings();
@@ -171,16 +171,9 @@ export const SearchDebugInfo: React.FC<SearchDebugInfoProps> = ({
                 </div>
               </div>
             )}
-            
-            <div className="border-t border-neonBlue/10 pt-2 flex items-center gap-1.5 text-muted-foreground">
-              <Timer size={14} />
-              <span className="text-xs">
-                Processing time: <span className="font-mono">{processTime.toFixed(3)}ms</span>
-              </span>
-            </div>
           </div>
         </CollapsibleContent>
       </Collapsible>
     </div>
   );
-};
+}
