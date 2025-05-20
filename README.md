@@ -22,6 +22,13 @@ A fast, user-friendly search engine built with React, TypeScript & Vite, featuri
     - [Simplified Architecture](#simplified-architecture)
     - [Detailed Architecture](#detailed-architecture)
     - [Search Engine Components](#search-engine-components)
+  - [Core Information Retrieval Features](#core-information-retrieval-features)
+    - [Text Processing Pipeline](#text-processing-pipeline)
+    - [Indexing \& Retrieval Models](#indexing--retrieval-models)
+    - [Search Enhancement Features](#search-enhancement-features)
+    - [User Experience Features](#user-experience-features)
+    - [Performance Optimizations](#performance-optimizations)
+  - [Deployment](#deployment)
   - [Team Members](#team-members)
   - [Features](#features)
   - [Technology Stack](#technology-stack)
@@ -36,7 +43,7 @@ A fast, user-friendly search engine built with React, TypeScript & Vite, featuri
   - [UI Components](#ui-components)
   - [Future Enhancements](#future-enhancements)
   - [Contributing](#contributing)
-  - [Deployment](#deployment)
+  - [Deployment](#deployment-1)
 
 ## System Overview
 
