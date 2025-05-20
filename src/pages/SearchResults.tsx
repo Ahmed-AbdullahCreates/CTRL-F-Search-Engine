@@ -73,12 +73,11 @@ const SearchResults = () => {
     setSearchParams(newParams);
     window.scrollTo(0, 0);
   };
-
   return (
     <div className="min-h-screen flex flex-col bg-gradient-radial from-darkBlue to-deepBlue">
       <Header showSearch initialQuery={query} />
       
-      <main className="flex-grow container max-w-6xl mx-auto px-4 py-6">
+      <main className="flex-grow container max-w-6xl mx-auto px-3 xs:px-4 py-4 xs:py-6">
         {/* Search results */}
         <div className="flex-grow">
           <SearchStats
@@ -86,44 +85,43 @@ const SearchResults = () => {
             totalResults={totalResults}
             searchTime={searchTime}
             searchModel={searchModel}
-            className="mb-4"
+            className="mb-3 xs:mb-4"
           />
           
           {/* Did you mean suggestion */}
           {didYouMean && (
-            <Alert className="mb-4 bg-neonBlue/5 border-neonBlue/20">
+            <Alert className="mb-3 xs:mb-4 bg-neonBlue/5 border-neonBlue/20">
               <div className="flex items-center gap-2">
                 <Info size={16} className="text-neonBlue" />
-                <AlertTitle>Did you mean</AlertTitle>
+                <AlertTitle className="text-sm xs:text-base">Did you mean</AlertTitle>
               </div>
-              <div className="flex justify-between items-center mt-1">
-                <AlertDescription className="font-medium">
+              <div className="flex flex-col xs:flex-row xs:justify-between xs:items-center gap-2 mt-1">
+                <AlertDescription className="font-medium text-sm xs:text-base">
                   <span className="text-neonBlue">{didYouMean}</span>?
                 </AlertDescription>
                 <Button 
                   variant="outline" 
                   size="sm" 
                   onClick={handleSpellingCorrectionClick}
-                  className="border-neonBlue/30 hover:bg-neonBlue/10 hover:text-neonBlue"
+                  className="border-neonBlue/30 hover:bg-neonBlue/10 hover:text-neonBlue w-full xs:w-auto"
                 >
                   Search with correction
                 </Button>
               </div>
             </Alert>
           )}
-          
-          {/* Debug information (when enabled) */}
+            {/* Debug information (when enabled) */}
           <SearchDebugInfo 
             query={query}
             processedQuery={processedQuery}
             spellingCorrections={spellingCorrection?.corrections}
             topTerms={topTerms}
             processTime={processingTime}
-            className="mb-4"
+            className="mb-3 xs:mb-4"
           />
           
           {results.length > 0 ? (
-            <div className="space-y-4 mb-6">
+            <div className="space-y-3 xs:space-y-4 mb-4 xs:mb-6">
               {results.map(result => (
                 <SearchResult
                   key={result.id}
@@ -136,9 +134,9 @@ const SearchResults = () => {
               ))}
             </div>
           ) : (
-            <div className="p-8 text-center border border-neonBlue/20 rounded-lg bg-darkBlue/30">
-              <p className="text-lg mb-2">No results found for "{query}"</p>
-              <p className="text-sm text-muted-foreground">
+            <div className="p-4 xs:p-8 text-center border border-neonBlue/20 rounded-lg bg-darkBlue/30">
+              <p className="text-base xs:text-lg mb-1 xs:mb-2">No results found for "{query}"</p>
+              <p className="text-xs xs:text-sm text-muted-foreground">
                 Try using different keywords
               </p>
             </div>
@@ -149,7 +147,7 @@ const SearchResults = () => {
               currentPage={page}
               totalPages={totalPages}
               onPageChange={handlePageChange}
-              className="mt-8"
+              className="mt-6 xs:mt-8"
             />
           )}
         </div>

@@ -47,33 +47,32 @@ export const SearchDebugInfo: React.FC<SearchDebugInfoProps> = ({
             <ChevronDown size={16} className="transition-transform duration-200 group-data-[state=open]/collapser:rotate-180" />
           </CollapsibleTrigger>
         </div>
-        
-        <CollapsibleContent>
-          <div className="mt-3 space-y-3 pl-2">
-            <div className="grid grid-cols-[100px_1fr] gap-2">
-              <div className="text-muted-foreground">Algorithm:</div>
-              <div className="font-mono text-neonBlue">
+          <CollapsibleContent>
+          <div className="mt-3 space-y-3 pl-0 xs:pl-2">
+            <div className="grid grid-cols-[80px_1fr] xs:grid-cols-[100px_1fr] gap-1 xs:gap-2">
+              <div className="text-muted-foreground text-xs xs:text-sm">Algorithm:</div>
+              <div className="font-mono text-neonBlue text-xs xs:text-sm break-words">
                 {searchModel === 'boolean' ? 'Boolean Retrieval' : 
                  searchModel === 'vector' ? 'Vector Space Model (TF-IDF)' : 
                  'Phrase Matching'}
               </div>
             </div>
             
-            <div className="grid grid-cols-[100px_1fr] gap-2">
-              <div className="text-muted-foreground">Raw Query:</div>
-              <div className="font-mono">{query}</div>
+            <div className="grid grid-cols-[80px_1fr] xs:grid-cols-[100px_1fr] gap-1 xs:gap-2">
+              <div className="text-muted-foreground text-xs xs:text-sm">Raw Query:</div>
+              <div className="font-mono text-xs xs:text-sm break-words">{query}</div>
             </div>
             
             {/* Spelling corrections section */}
             {hasSpellingCorrections && (
-              <div className="grid grid-cols-[100px_1fr] gap-2">
-                <div className="text-muted-foreground flex items-center gap-1">
+              <div className="grid grid-cols-[80px_1fr] xs:grid-cols-[100px_1fr] gap-1 xs:gap-2">
+                <div className="text-muted-foreground flex items-center gap-1 text-xs xs:text-sm">
                   <SpellCheck size={14} className="text-neonBlue/70" />
                   <span>Corrections:</span>
                 </div>
                 <div>
                   {Object.entries(safeSpellingCorrections).map(([original, corrected], idx) => (
-                    <div key={idx} className="flex items-center gap-2 mb-1">
+                    <div key={idx} className="flex flex-wrap items-center gap-1 xs:gap-2 mb-1">
                       <span className="bg-red-900/20 px-1.5 py-0.5 rounded text-xs line-through">
                         {original}
                       </span>
@@ -87,8 +86,8 @@ export const SearchDebugInfo: React.FC<SearchDebugInfoProps> = ({
               </div>
             )}
             
-            <div className="grid grid-cols-[100px_1fr] gap-2">
-              <div className="text-muted-foreground">Processed:</div>
+            <div className="grid grid-cols-[80px_1fr] xs:grid-cols-[100px_1fr] gap-1 xs:gap-2">
+              <div className="text-muted-foreground text-xs xs:text-sm">Processed:</div>
               <div className="font-mono flex flex-wrap gap-1">
                 {safeProcessedQuery.length > 0 ? 
                   safeProcessedQuery.map((term, index) => (
@@ -97,15 +96,15 @@ export const SearchDebugInfo: React.FC<SearchDebugInfoProps> = ({
                     </span>
                   ))
                   : 
-                  <span className="text-muted-foreground italic">No terms after processing</span>
+                  <span className="text-muted-foreground italic text-xs">No terms after processing</span>
                 }
               </div>
             </div>
             
             {/* Related terms section */}
             {safeTopTerms.length > 0 && (
-              <div className="grid grid-cols-[100px_1fr] gap-2">
-                <div className="text-muted-foreground flex items-center gap-1">
+              <div className="grid grid-cols-[80px_1fr] xs:grid-cols-[100px_1fr] gap-1 xs:gap-2">
+                <div className="text-muted-foreground flex items-center gap-1 text-xs xs:text-sm">
                   <Lightbulb size={14} className="text-neonBlue/70" />
                   <span>Related:</span>
                 </div>
@@ -119,22 +118,21 @@ export const SearchDebugInfo: React.FC<SearchDebugInfoProps> = ({
                 </div>
               </div>
             )}
-            
-            {searchModel === 'vector' && (
+              {searchModel === 'vector' && (
               <div className="border-t border-neonBlue/10 pt-2 mt-2">
                 <div className="text-xs text-muted-foreground mb-1">Vector Space Model Details:</div>
-                <div className="pl-2">
-                  <div className="grid grid-cols-[100px_1fr] gap-2">
-                    <div className="text-muted-foreground">Ranking:</div>
-                    <div className="font-mono">TF-IDF weighted similarity</div>
+                <div className="pl-0 xs:pl-2">
+                  <div className="grid grid-cols-[80px_1fr] xs:grid-cols-[100px_1fr] gap-1 xs:gap-2">
+                    <div className="text-muted-foreground text-xs xs:text-sm">Ranking:</div>
+                    <div className="font-mono text-xs xs:text-sm">TF-IDF weighted similarity</div>
                   </div>
-                  <div className="grid grid-cols-[100px_1fr] gap-2 mt-1">
-                    <div className="text-muted-foreground">Formula:</div>
-                    <div className="font-mono text-xs">score = Σ(tf(t,d) × idf(t))</div>
+                  <div className="grid grid-cols-[80px_1fr] xs:grid-cols-[100px_1fr] gap-1 xs:gap-2 mt-1">
+                    <div className="text-muted-foreground text-xs xs:text-sm">Formula:</div>
+                    <div className="font-mono text-xxs xs:text-xs overflow-x-auto">score = Σ(tf(t,d) × idf(t))</div>
                   </div>
-                  <div className="mt-1 pl-2 text-muted-foreground text-xs">
-                    <div>where tf(t,d) = 1 + log(frequency of term t in document d)</div>
-                    <div>and idf(t) = log(N / number of documents containing t)</div>
+                  <div className="mt-1 pl-0 xs:pl-2 text-muted-foreground text-xxs xs:text-xs">
+                    <div className="break-words">where tf(t,d) = 1 + log(frequency of term t in document d)</div>
+                    <div className="break-words">and idf(t) = log(N / number of documents containing t)</div>
                   </div>
                 </div>
               </div>
@@ -143,14 +141,14 @@ export const SearchDebugInfo: React.FC<SearchDebugInfoProps> = ({
             {searchModel === 'boolean' && (
               <div className="border-t border-neonBlue/10 pt-2 mt-2">
                 <div className="text-xs text-muted-foreground mb-1">Boolean Model Details:</div>
-                <div className="pl-2">
-                  <div className="grid grid-cols-[100px_1fr] gap-2">
-                    <div className="text-muted-foreground">Operation:</div>
-                    <div className="font-mono">AND (all terms must match)</div>
+                <div className="pl-0 xs:pl-2">
+                  <div className="grid grid-cols-[80px_1fr] xs:grid-cols-[100px_1fr] gap-1 xs:gap-2">
+                    <div className="text-muted-foreground text-xs xs:text-sm">Operation:</div>
+                    <div className="font-mono text-xs xs:text-sm">AND (all terms must match)</div>
                   </div>
-                  <div className="grid grid-cols-[100px_1fr] gap-2 mt-1">
-                    <div className="text-muted-foreground">Ranking:</div>
-                    <div className="font-mono text-xs">By sum of term frequencies in matching documents</div>
+                  <div className="grid grid-cols-[80px_1fr] xs:grid-cols-[100px_1fr] gap-1 xs:gap-2 mt-1">
+                    <div className="text-muted-foreground text-xs xs:text-sm">Ranking:</div>
+                    <div className="font-mono text-xxs xs:text-xs">By sum of term frequencies in matching documents</div>
                   </div>
                 </div>
               </div>
@@ -159,14 +157,14 @@ export const SearchDebugInfo: React.FC<SearchDebugInfoProps> = ({
             {searchModel === 'phrase' && (
               <div className="border-t border-neonBlue/10 pt-2 mt-2">
                 <div className="text-xs text-muted-foreground mb-1">Phrase Matching Details:</div>
-                <div className="pl-2">
-                  <div className="grid grid-cols-[100px_1fr] gap-2">
-                    <div className="text-muted-foreground">Operation:</div>
-                    <div className="font-mono">Exact sequence matching</div>
+                <div className="pl-0 xs:pl-2">
+                  <div className="grid grid-cols-[80px_1fr] xs:grid-cols-[100px_1fr] gap-1 xs:gap-2">
+                    <div className="text-muted-foreground text-xs xs:text-sm">Operation:</div>
+                    <div className="font-mono text-xs xs:text-sm">Exact sequence matching</div>
                   </div>
-                  <div className="grid grid-cols-[100px_1fr] gap-2 mt-1">
-                    <div className="text-muted-foreground">Position:</div>
-                    <div className="font-mono text-xs">Terms must appear in sequence with no gaps</div>
+                  <div className="grid grid-cols-[80px_1fr] xs:grid-cols-[100px_1fr] gap-1 xs:gap-2 mt-1">
+                    <div className="text-muted-foreground text-xs xs:text-sm">Position:</div>
+                    <div className="font-mono text-xxs xs:text-xs">Terms must appear in sequence with no gaps</div>
                   </div>
                 </div>
               </div>

@@ -17,17 +17,17 @@ export const Header: React.FC<HeaderProps> = ({
   showSearch = true,
   initialQuery = '',
   className 
-}) => {
-  return (
+}) => {  return (
     <header className={cn(
       "w-full border-b border-neonBlue/20 bg-darkBlue/80 backdrop-blur-md sticky top-0 z-50 shadow-md shadow-neonBlue/5",
       className
     )}>
-      <div className="container max-w-6xl mx-auto px-4 py-3">
+      <div className="container max-w-6xl mx-auto px-2 sm:px-4 py-3">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center group">
-            <SearchLogo size="sm" animated={true} className="group-hover:scale-105 transition-transform" />
-            <div className="ml-3 hidden md:block">
+          <Link to="/" className="flex items-center group shrink-0">
+            <SearchLogo size="xs" animated={true} className="group-hover:scale-105 transition-transform sm:hidden" />
+            <SearchLogo size="sm" animated={true} className="group-hover:scale-105 transition-transform hidden sm:block" />
+            <div className="ml-1 sm:ml-3 hidden xs:block">
               <p className="text-xs text-neonBlue/70 font-light tracking-wider">
                 SEARCH ENGINE
               </p>

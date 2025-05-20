@@ -23,6 +23,7 @@ A fast, user-friendly search engine built with React, TypeScript & Vite, featuri
     - [Detailed Architecture](#detailed-architecture)
     - [Search Engine Components](#search-engine-components)
   - [Core Information Retrieval Features](#core-information-retrieval-features)
+    - [Responsive Design Features](#responsive-design-features)
     - [Text Processing Pipeline](#text-processing-pipeline)
     - [Indexing \& Retrieval Models](#indexing--retrieval-models)
     - [Search Enhancement Features](#search-enhancement-features)
@@ -44,6 +45,7 @@ A fast, user-friendly search engine built with React, TypeScript & Vite, featuri
   - [Future Enhancements](#future-enhancements)
   - [Contributing](#contributing)
   - [Deployment](#deployment-1)
+  - [⭐ Star the Repository](#-star-the-repository)
 
 ## System Overview
 
@@ -80,6 +82,16 @@ The search engine implementation consists of multiple modules:
 <div align="center">
   <h3>🔍 Advanced Search Engine Implementation</h3>
 </div>
+
+### Responsive Design Features
+- **Mobile-First Approach**: Optimized for all screen sizes from mobile to desktop
+- **Adaptive Components**: UI elements that adjust layout and sizing based on viewport
+- **Custom Breakpoints**: Added an extra small (xs: 480px) breakpoint for finer control
+- **Improved Typography**: Responsive font sizes for better readability on small screens
+- **Touch-Friendly Elements**: Larger tap targets and properly spaced UI controls
+- **Flexible Layouts**: Grid and flex layouts that reflow content appropriately
+- **Content Prioritization**: Critical information remains visible across all devices
+- **Enhanced Mobile UX**: Simplified UI for smaller screens without sacrificing functionality
 
 ### Text Processing Pipeline
 - **Tokenization**: Breaking text into individual terms with careful handling of punctuation and special characters
@@ -292,3 +304,13 @@ We welcome contributions to improve the Curious Seeker Engine!
 The CTRL+F Search Engine is deployed and accessible at the following link:
 
 [CTRL+F Search Engine Deployment](https://ctrlof-search-engine.vercel.app/)
+
+## ⭐ Star the Repository
+
+If you find this project helpful or interesting, please consider giving it a star on GitHub! 
+<div align="center">
+  <a href="https://github.com/Ahmed-AbdullahCreates/CTRL-F-Search-Engine">
+    <img src="https://img.shields.io/github/stars/Ahmed-AbdullahCreates/CTRL-F-Search-Engine?style=social" alt="Star this repository" />
+  </a>
+  
+</div>

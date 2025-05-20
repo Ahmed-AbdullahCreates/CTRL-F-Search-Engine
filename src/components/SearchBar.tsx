@@ -183,15 +183,14 @@ export const SearchBar: React.FC<SearchBarProps> = ({
           >
             <Mic size={18} />
           </button>
-        </div>
-        <Button 
+        </div>        <Button 
           type="submit" 
           className={cn(
             "rounded-l-none bg-neonBlue hover:bg-neonBlue/80 text-darkBlue flex items-center gap-2 font-medium shadow-glow-sm hover:shadow-glow-md transition-all duration-300", 
             buttonSizeClasses[size]
           )}
         >
-          <span className="hidden sm:inline">Search</span>
+          <span className="hidden xs:inline">Search</span>
           <Search size={size === "sm" ? 16 : size === "md" ? 18 : 20} />
         </Button>
       </form>

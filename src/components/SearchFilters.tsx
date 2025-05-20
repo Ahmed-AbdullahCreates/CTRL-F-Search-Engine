@@ -31,11 +31,10 @@ export const SearchFilters: React.FC<SearchFiltersProps> = ({
       onChange([...selectedOptions, id]);
     }
   };
-
   return (
-    <div className={cn("rounded-lg border border-neonBlue/20 p-4", className)}>
-      <h3 className="text-lg font-medium text-neonBlue mb-3">{title}</h3>
-      <div className="space-y-2">
+    <div className={cn("rounded-lg border border-neonBlue/20 p-3 sm:p-4", className)}>
+      <h3 className="text-base sm:text-lg font-medium text-neonBlue mb-2 sm:mb-3">{title}</h3>
+      <div className="grid grid-cols-2 xs:grid-cols-1 gap-x-4 gap-y-2">
         {options.map((option) => (
           <div key={option.id} className="flex items-center space-x-2">
             <Checkbox 
@@ -46,7 +45,7 @@ export const SearchFilters: React.FC<SearchFiltersProps> = ({
             />
             <Label 
               htmlFor={`filter-${option.id}`}
-              className="text-sm cursor-pointer"
+              className="text-sm cursor-pointer truncate"
             >
               {option.label}
             </Label>

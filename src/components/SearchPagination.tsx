@@ -48,23 +48,23 @@ export const SearchPagination: React.FC<SearchPaginationProps> = ({
   };
 
   const pageNumbers = getPageNumbers();
-
   return (
-    <div className={cn("flex items-center justify-center space-x-2", className)}>
+    <div className={cn("flex flex-wrap items-center justify-center gap-2", className)}>
       <Button
         variant="outline"
         size="sm"
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="border-neonBlue/30 hover:bg-neonBlue/10 hover:border-neonBlue"
+        className="border-neonBlue/30 hover:bg-neonBlue/10 hover:border-neonBlue xs:px-3 px-2"
       >
-        Previous
+        <span className="hidden xs:inline">Previous</span>
+        <span className="xs:hidden">Prev</span>
       </Button>
       
-      <div className="flex items-center space-x-1">
+      <div className="flex flex-wrap items-center gap-1 justify-center">
         {pageNumbers.map((pageNumber, index) => (
           pageNumber === '...' ? (
-            <span key={`ellipsis-${index}`} className="px-2 text-muted-foreground">...</span>
+            <span key={`ellipsis-${index}`} className="px-1 xs:px-2 text-muted-foreground">...</span>
           ) : (
             <Button
               key={`page-${pageNumber}`}
@@ -73,8 +73,8 @@ export const SearchPagination: React.FC<SearchPaginationProps> = ({
               onClick={() => typeof pageNumber === 'number' && onPageChange(pageNumber)}
               className={
                 currentPage === pageNumber
-                  ? "bg-neonBlue text-darkBlue hover:bg-neonBlue/90"
-                  : "border-neonBlue/30 hover:bg-neonBlue/10 hover:border-neonBlue"
+                  ? "bg-neonBlue text-darkBlue hover:bg-neonBlue/90 h-8 w-8 p-0"
+                  : "border-neonBlue/30 hover:bg-neonBlue/10 hover:border-neonBlue h-8 w-8 p-0"
               }
             >
               {pageNumber}
@@ -88,9 +88,10 @@ export const SearchPagination: React.FC<SearchPaginationProps> = ({
         size="sm"
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="border-neonBlue/30 hover:bg-neonBlue/10 hover:border-neonBlue"
+        className="border-neonBlue/30 hover:bg-neonBlue/10 hover:border-neonBlue xs:px-3 px-2"
       >
-        Next
+        <span className="hidden xs:inline">Next</span>
+        <span className="xs:hidden">Next</span>
       </Button>
     </div>
   );
