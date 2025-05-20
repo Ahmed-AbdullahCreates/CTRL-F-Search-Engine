@@ -18,10 +18,7 @@ const STOP_WORDS = new Set([
   'same', 'so', 'than', 'too', 'very', 'can', 'will', 'just', 'should', 'now'
 ]);
 
-/**
- * Simple Porter stemmer implementation (simplified version)
- * Reduces words to their root form (e.g., "running" -> "run")
- */
+
 export function stem(word: string): string {
   // Basic stemming rules (simplified Porter algorithm)
   

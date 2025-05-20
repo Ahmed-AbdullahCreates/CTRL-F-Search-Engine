@@ -1,10 +1,3 @@
-/**
- * Inverted Index for Information Retrieval
- * 
- * An inverted index maps terms to the documents that contain them.
- * This is the core data structure that enables efficient search.
- */
-
 import { preprocess } from './preprocessor';
 
 export interface Document {
@@ -40,9 +33,7 @@ export class InvertedIndex {
   // Global term frequencies across the corpus
   private termFrequencies: Record<string, number> = {};
   
-  /**
-   * Create an inverted index from a collection of documents
-   */
+
   public buildIndex(documents: Document[]): void {
     this.documentCount = documents.length;
     this.termFrequencies = {};

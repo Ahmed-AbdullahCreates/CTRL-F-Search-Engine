@@ -49,6 +49,8 @@ export function getLastSearchDiagnostics(): SearchDiagnostics {
   return lastSearchDiagnostics;
 }
 
+
+
 // Convert search engine results back to the format expected by the UI
 export interface UISearchResult {
   id: string;

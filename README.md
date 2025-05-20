@@ -68,6 +68,48 @@ The search engine implementation consists of multiple modules:
 - `spellingCorrection.ts`: Provides query correction suggestions
 - `mockDataAdapter.ts`: Simulates a data source for development and testing
 
+## Core Information Retrieval Features
+
+<div align="center">
+  <h3>🔍 Advanced Search Engine Implementation</h3>
+</div>
+
+### Text Processing Pipeline
+- **Tokenization**: Breaking text into individual terms with careful handling of punctuation and special characters
+- **Stop Word Removal**: Filtering out common words with little semantic value using a comprehensive stop word list
+- **Stemming**: Reducing words to their root form using a simplified Porter stemming algorithm
+- **Query Preprocessing**: Special handling for search queries with less aggressive stop word removal
+
+### Indexing & Retrieval Models
+- **Inverted Index**: Space-efficient index mapping terms to documents for fast retrieval
+- **Vector Space Model**: Document-query similarity calculation using TF-IDF weighting and cosine similarity
+- **Boolean Retrieval**: Support for logical operators (AND, OR, NOT) for precise filtering
+- **Phrase Search**: Matching exact sequences of words for higher precision
+
+### Search Enhancement Features
+- **"Did You Mean?"**: Spelling correction for misspelled queries using edit distance algorithms
+- **Search Suggestions**: Real-time query suggestions as users type
+- **Query Expansion**: Enhanced recall through automatic expansion of search terms
+- **Document Ranking**: Sophisticated relevance scoring combining multiple signals
+
+### User Experience Features
+- **Real-time Search**: Instant results as you type for immediate feedback
+- **Search History**: Tracking and recalling past searches for convenient access
+- **Filter & Faceting**: Category-based filtering to refine search results
+- **Pagination**: Efficient navigation through large result sets
+- **Search Analytics**: Debug information showing query processing details, execution time, and term frequencies
+
+### Performance Optimizations
+- **Efficient Term Lookup**: O(1) access to term posting lists
+- **Smart Query Processing**: Optimized evaluation of complex queries
+- **Result Caching**: Improved response times for repeated queries
+
+## Deployment
+<div align="center">
+  <h3><a href="https://ctrlof-search-engine.vercel.app/">🌐 Live Demo: CTRL+F Search Engine</a></h3>
+  <p>Try our search engine now with features like spelling correction, multi-model search, and advanced filtering!</p>
+</div>
+
 ## Team Members
 
 <div align="center">
