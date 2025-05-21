@@ -12,7 +12,7 @@
 
 A fast, powerful search engine inspired by the universal CTRL+F keyboard shortcut. Built with React, TypeScript & Vite, this project delivers lightning-fast search results with advanced information retrieval techniques.
 
-*This project was developed as part of the Information Retrieval course taught by [ENG. Esraa Maged](https://github.com/EsraaMagedd), FCAI, 2024-2025.*
+*This project was developed as part of the Information Retrieval course taught by [Eng. Esraa Maged](https://github.com/EsraaMagedd), FCAI, 2024-2025.*
 
 </div>
 
