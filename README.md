@@ -8,11 +8,14 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-4.9-3178C6?logo=typescript)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.2-38B2AC?logo=tailwind-css)
 
-<img src="./src/assets/Logo.png" alt="Curious Seeker Logo" width="200"/>
+<img src="./src/assets/Logo.png" alt="CTRL+F Search Engine Logo" width="200"/>
 
-A fast, user-friendly search engine built with React, TypeScript & Vite, featuring a clean Shadcn UI.
+A fast, powerful search engine inspired by the universal CTRL+F keyboard shortcut. Built with React, TypeScript & Vite, this project delivers lightning-fast search results with advanced information retrieval techniques.
+
+*This project was developed as part of the Information Retrieval course taught by [ENG. Esraa Maged](https://github.com/EsraaMagedd), FCAI, 2024-2025.*
 
 </div>
+
 
 ## 📑 Table of Contents
 
